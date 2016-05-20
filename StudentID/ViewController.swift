@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -34,10 +35,16 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //addons here
     
+
+    //end
     @IBAction func enterManuallyPressed(sender: AnyObject) {
-        if barcodeTextField.text?.characters.count == 8 {
-            BarCode.idNumber = Int(barcodeTextField.text)
+        
+        //swift lesson 1: the '!' is for unwarpping a wrapped object. For some reason, barcodeTextField.text has been turned into an object - KN
+        
+        if barcodeTextField.text?.characters.count == 8 && Int(barcodeTextField.text!) != nil {
+            BarCode.idNumber = barcodeTextField.text
             showBarcode(BarCode.idNumber)
             barcodeTextField.text = ""
             barcodeTextField.resignFirstResponder()
